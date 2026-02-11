@@ -1,0 +1,20 @@
+/* .contact-us-body{
+    background-image: url('./HomePic1.jpeg');
+    position: relative;
+    width:100%;
+    height: auto;
+} */
+.contact-info {
+  padding: 1px 1px;
+  margin-left: 1%;
+  font-size: x-large;
+  text-decoration: none;
+  top: 5%;
+}
+
+
+/* .overlay{
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.365);
+} */

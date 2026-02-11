@@ -1,0 +1,23 @@
+
+.home-body{
+    position: relative;
+    width:100%;
+}
+.pic2{
+    width: 100%;
+    display: block;
+}
+.overlay{
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.365);
+}
+.text-over-image{
+    position: absolute;
+    font-weight: bolder;
+    color: blue;
+    font-size: 50px;
+    top: 5%;
+    right: 50%;
+    text-shadow: 2px 2px 5px black;
+}

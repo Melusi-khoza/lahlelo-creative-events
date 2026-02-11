@@ -1,0 +1,52 @@
+.header-container {
+  position: relative;
+  margin-left: 1%;
+}
+
+.company_logo {
+  width: 15%;
+  height: auto;
+  margin-left: 0%;
+}
+
+.header-list {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  align-items: center;
+  list-style: none;
+  top: 20%;
+  left: 35%;
+}
+
+.header-list li a {
+  text-decoration: none;
+  font-size: xx-large;
+  font-weight: bold;
+  color: rgb(225, 225, 225);
+}
+
+.header-list li a:hover {
+  color: rgb(210, 39, 119);
+}
+
+.motto {
+  color: rgb(210, 39, 119);
+  font-style: italic;
+}
+
+.book-btn {
+  color: black;
+  background-color: rgb(210, 39, 119);
+  border-radius: 15px;
+  position: absolute;
+  top: 30%;
+  right: 3%;
+  padding: 1% 5%;
+  font-size: medium;
+}
+
+.book-btn:hover {
+  transform: scale(1.2);
+}
