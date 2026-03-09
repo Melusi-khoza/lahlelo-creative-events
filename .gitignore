@@ -1,0 +1,15 @@
+# Node.js packages
+node_modules/
+
+# Vite cache files
+.vite/
+
+# Build folders
+build/
+dist/
+
+# Log files
+*.log
+
+# Environment files with secrets
+.env
