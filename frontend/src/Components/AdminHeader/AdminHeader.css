@@ -1,0 +1,123 @@
+.admin-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Keeps icons at the top */
+    padding: 20px 2%;
+    backgroun: linear-gradient( #ff6ec7 70%);
+    position: relative;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+.header-main-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between logo/motto and search bar */
+    flex: 1;
+}
+
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+}
+
+.search-bar-wrapper{
+    width: 100%;
+    max-width: 65%;
+    display: flex;
+}
+
+.company_logo {
+    width: 130px;
+    height: auto;
+}
+
+.motto {
+    color: #d22777;
+    font-style: italic;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+/* Reduced Search Input Size */
+.search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px;
+    border-radius: 8px 0 0 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(216, 27, 96, 0.3);
+    color: white;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+/* Icons and Logout Section (Right Side) */
+.header-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Aligns bell and logout to the right */
+    gap: 15px;
+    min-width: 150px; 
+}
+
+.noti-icon-wrapper {
+    margin-top: 5px; /* Green area positioning */
+}
+
+.logout-btn {
+    background-color: #d22777;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .admin-header-container {
+        flex-direction: column;
+        align-items: center;
+        min-height: 220px;
+        padding-top: 50px;
+        padding-bottom: 60px;
+    }
+
+    .noti-icon-wrapper {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        margin: 0;
+    }
+
+    .logout-btn {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        background-color: #d22777;
+        padding: 8px 18px;
+        font-size: 0.85rem;
+        z-index: 5;
+    }
+
+    .logo-section {
+        align-items: center;
+        text-align: center;
+    }
+
+    .search-bar-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 25px;
+    }
+
+    .search-input {
+        width: 220px;
+        margin-top: 0; /* Spans width on small phones */
+    }
+}

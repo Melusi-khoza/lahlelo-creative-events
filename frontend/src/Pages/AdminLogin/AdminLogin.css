@@ -1,0 +1,78 @@
+:root {
+    --brand-pink: #D81B60; 
+    --dark-bg: #1A1A1A;    
+    --input-bg: rgba(255, 255, 255, 0.05);
+    --text-main: #FFFFFF;
+}
+
+body {
+    background-color: var(--dark-bg);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.admin-login-container h2 {
+   font-size: 2.5rem;
+   margin-bottom: 30px;
+   font-family: 'Playfair Display', serif;
+}
+
+.admin-login-container h2 span {
+    color: var(--brand-pink);
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%; /* Spans the width of the centered form */
+    padding: 12px;
+    border: 1px solid rgba(216, 27, 96, 0.3);
+    border-radius: 8px;
+    background-color: var(--input-bg);
+    color: white;
+    font-size: 16px;
+    transition: border-color 0.3s, background-color 0.3s;
+    text-align: center; /* Centers the placeholder and user text */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Centers all direct children (inputs, sections) */
+    width: 100%;
+    max-width: 450px; 
+    gap: 15px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 15px;
+
+}
+
+.login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+button {
+    background-color: var(--brand-pink);
+    color: white;
+    border: none;
+    padding: 15px 50px; /* Wider padding for a centered, premium feel */
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+    background-color: #AD1457;
+    transform: scale(1.05);
+}

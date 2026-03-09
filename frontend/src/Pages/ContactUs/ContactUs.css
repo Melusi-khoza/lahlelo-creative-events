@@ -1,0 +1,80 @@
+.contact-page-wrapper {
+    background-color: #1a1a1a;
+    color: white;
+    min-height: 100vh;
+}
+
+.contact-container {
+    max-width: auto;
+    margin: 0 auto;
+    padding: 60px 5%;
+    background: linear-gradient(to top, black 30%, #ff6ec7 70%);
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+}
+
+.contact-header span {
+    color: #D81B60; /* Your Brand Pink */
+}
+
+/* --- The Layout --- */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 40px;
+    align-items: start;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 4px solid #D81B60;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 0 10px 10px 0;
+    transition: 0.3s;
+}
+
+.info-card:hover {
+    background: rgba(216, 27, 96, 0.05);
+}
+
+
+.info-card h4 {
+    color: #D81B60;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.info-card a, .info-card p {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* --- The Map --- */
+.map-section iframe {
+    width: 100%;
+    height: 450px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 850px) {
+    .contact-content {
+        grid-template-columns: 1fr; /* Stacked */
+    }
+    .map-section iframe {
+        height: 300px;
+    }
+}

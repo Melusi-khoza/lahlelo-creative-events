@@ -1,0 +1,206 @@
+:root {
+    --brand-pink: #D81B60; 
+    --dark-bg: #1A1A1A;    
+    --input-bg: rgba(255, 255, 255, 0.05);
+    --text-main: #FFFFFF;
+}
+
+/* 1. Global Layout */
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-main);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers vertically in the viewport */
+    align-items: center;     /* Centers horizontally in the viewport */
+    min-height: 100vh;
+    margin: 0;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--text-main);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    text-align: center; /* Centers the text itself */
+}
+
+span {
+    color: var(--brand-pink);
+}
+/* 2. Form Container */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Centers all direct children (inputs, sections) */
+    width: 100%;
+    max-width: 450px; 
+    gap: 15px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 15px;
+
+}
+
+/*Select input */
+/* This targets the main select box */
+select {
+    background-color: var(--dark-bg); /* Use the #1A1A1A you defined */
+    color: var(--text-main);
+    border: 1px solid rgba(216, 27, 96, 0.3);
+    cursor: pointer;
+}
+
+/* This targets the actual list that drops down */
+select option {
+    background-color: #1A1A1A; /* Must be solid for many browsers to render it */
+    color: white;
+    padding: 10px;
+}
+
+/* Optional: Style for when an option is hovered/selected in the list */
+select option:hover, 
+select option:checked {
+    background-color: var(--brand-pink) !important;
+    color: white;
+}
+
+/*Text Area*/
+textarea{
+    width: 100%;
+    height: 150px;
+    padding: 12px;
+    border: 1px solid rgba(216, 27, 96, 0.3);
+    border-radius: 8px;
+    background-color: var(--input-bg);  
+    resize: none;
+}
+
+/* 3. Unified Input Styles */
+input[type="text"],
+input[type="email"],
+input[type="tel"], 
+select, 
+textarea {
+    width: 100%; /* Spans the width of the centered form */
+    padding: 12px;
+    border: 1px solid rgba(216, 27, 96, 0.3);
+    border-radius: 8px;
+    background-color: var(--input-bg);
+    color: white;
+    font-size: 16px;
+    transition: border-color 0.3s, background-color 0.3s;
+    text-align: center; /* Centers the placeholder and user text */
+}
+
+input:focus, textarea:focus {
+    border-color: var(--brand-pink);
+    background-color: rgba(216, 27, 96, 0.05);
+    outline: none;
+}
+
+/* 4. Centering Radio Buttons */
+.radio-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the "Select your province" label and the group */
+    width: 100%;
+    margin: 10px 0;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Keeps dots aligned with text, but as a centered block */
+    gap: 10px;
+    margin-top: 10px;
+    width: fit-content; /* Ensures the container only takes up as much space as the text */
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+    gap: 12px; 
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    accent-color: var(--brand-pink);
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* 5. The "Send" Button */
+button {
+    background-color: var(--brand-pink);
+    color: white;
+    border: none;
+    padding: 15px 50px; /* Wider padding for a centered, premium feel */
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+    background-color: #AD1457;
+    transform: scale(1.05);
+}
+
+.booking-body{
+    /* background-image: url('./bookingPic.jpeg'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    background: linear-gradient(to top, black 30%, #ff6ec7 70%);
+    position: relative;
+    width:100%;
+    height: auto;
+}
+
+.booking-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.calendar-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+input[type="date"] {
+   background-color: var(--dark-bg);
+   color: var(--text-main);
+   border: 1px solid rgba(216, 27, 96, 0.3);
+   border-radius: 8px;
+   padding: 12px;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 1rem;
+   outline: none;
+   cursor: pointer;
+   accent-color: var(--brand-pink);
+   color-scheme: dark;
+}
+
+input[type="date"]:focus {
+    border-color: var(--brand-pink);
+    box-shadow: 0 0 8px rgba(216, 27, 96, 0.2);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(18%) sepia(85%) saturate(4442%) hue-rotate(325deg) brightness(91%) contrast(95%);
+    transition: transform 0.2s ease;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    transform: scale(1.2);
+}
