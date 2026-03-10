@@ -3,7 +3,10 @@ package com.lahlelo.booking.entity;
 import java.time.LocalDateTime;
 import lombok.Data;
 import jakarta.persistence.*;
+<<<<<<< HEAD
+=======
 import java.time.LocalDate;
+>>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
 
 @Data
 @Entity
@@ -24,6 +27,10 @@ public class Booking {
     private String province;
     private String comments;
 
+<<<<<<< HEAD
+    @Column(name = "booked_at")
+    private LocalDateTime bookedAt;
+=======
     @Column(name = "event_date")
     private LocalDate eventDate;
     public LocalDate getEventDate(){
@@ -64,4 +71,5 @@ public class Booking {
     public void setBookedAt(LocalDateTime bookedAt) {
         this.bookedAt = bookedAt;
     }
+>>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
 }

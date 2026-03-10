@@ -1,5 +1,9 @@
 {
   "java.compile.nullAnalysis.mode": "automatic",
+<<<<<<< HEAD
+  "java.configuration.updateBuildConfiguration": "disabled"
+=======
   "java.configuration.updateBuildConfiguration": "disabled",
   "java.project.sourcePaths": ["frontend"]
+>>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
 }
