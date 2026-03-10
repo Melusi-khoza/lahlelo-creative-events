@@ -38,6 +38,7 @@
   font-size: x-large;
   font-weight: bold;
   color: white;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .header-list li a:hover {

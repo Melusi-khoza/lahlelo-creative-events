@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import "./Services.css";
@@ -10,7 +10,7 @@ import pic2 from "../Services/weddingPics/trw.jpg";
 import pic3 from "../Services/weddingPics/w.jpg";
 import pic4 from "../Services/weddingPics/tr.jpg";
 import pic5 from "../Services/weddingPics/rowt.jpg";
-import pic6 from"../Services/weddingPics/ro.jpg";
+import pic6 from "../Services/weddingPics/ro.jpg";
 import pic7 from "../Services/weddingPics/r.jpg";
 import pic8 from "../Services/weddingPics/hg.jpg";
 import pic9 from "../Services/weddingPics/front.jpg";
@@ -21,6 +21,13 @@ export default function Services() {
   const [activeService, setActiveService] = useState(null);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imageLoading, setImageLoading] = useState(false);
+
+  // ---------- IMAGE PRELOAD FUNCTION ----------
+  const preloadImage = (src) => {
+    const img = new Image();
+    img.src = src;
+  };
 
   // --- Services Data ---
   const servicesData = {
@@ -54,7 +61,7 @@ export default function Services() {
           "https://res.cloudinary.com/dzzkfvl3y/image/upload/v1773098222/LHP_4110_ufdsnj.jpg",
           "https://res.cloudinary.com/dzzkfvl3y/image/upload/v1773098276/LHP_4088_wlk16o.jpg",
           "https://res.cloudinary.com/dzzkfvl3y/image/upload/v1773098217/LHP_4113_iqhrv5.jpg",
-          "https://res.cloudinary.com/dzzkfvl3y/image/upload/v1773098295/LHP_4415_iss1uc.jpg",
+          "https://res.cloudinary.com/dzzkfvl3y/image/upload/v1773098255/LHP_4115_mhb6f8.jpg",
           "https://res.cloudinary.com/dzzkfvl3y/image/upload/v1773098275/LHP_4116_vpyfr3.jpg",
           "https://res.cloudinary.com/dzzkfvl3y/image/upload/v1773098181/LHP_4107_hwlq2i.jpg",
           "https://res.cloudinary.com/dzzkfvl3y/image/upload/v1773098145/LHP_4078_u2p9es.jpg",
@@ -158,24 +165,49 @@ export default function Services() {
     ],
   };
 
-  // --- Helper: Get images for selected event ---
+  // ---------- GET EVENT IMAGES ----------
   const getEventImages = () => {
     if (!selectedEvent) return [];
     const { serviceKey, eventIndex } = selectedEvent;
     return servicesData[serviceKey][eventIndex].images;
   };
 
-  // --- Modal navigation ---
+  // ---------- PRELOAD NEXT + PREVIOUS IMAGE ----------
+  useEffect(() => {
+    const images = getEventImages();
+    if (images.length === 0) return;
+
+    const nextIndex =
+      currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1;
+
+    const prevIndex =
+      currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
+
+    preloadImage(images[nextIndex]);
+    preloadImage(images[prevIndex]);
+  }, [currentImageIndex, selectedEvent]);
+
+  // ---------- NAVIGATION ----------
   const showNextImage = (e) => {
     e.stopPropagation();
     const images = getEventImages();
-    setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+
+    setImageLoading(true);
+
+    setCurrentImageIndex((prev) =>
+      prev === images.length - 1 ? 0 : prev + 1
+    );
   };
 
   const showPrevImage = (e) => {
     e.stopPropagation();
     const images = getEventImages();
-    setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+
+    setImageLoading(true);
+
+    setCurrentImageIndex((prev) =>
+      prev === 0 ? images.length - 1 : prev - 1
+    );
   };
 
   return (
@@ -210,9 +242,7 @@ export default function Services() {
                     alt={serviceKey}
                   />
                   <div className="service-overlay">
-                    <h3>
-                      {serviceKey.charAt(0).toUpperCase() + serviceKey.slice(1)}
-                    </h3>
+                    <h3>{serviceKey}</h3>
                   </div>
                 </div>
 
@@ -225,13 +255,13 @@ export default function Services() {
                         onClick={() => {
                           setSelectedEvent({ serviceKey, eventIndex: index });
                           setCurrentImageIndex(0);
+                          setImageLoading(true);
                         }}
                         style={{ cursor: "pointer" }}
                       >
-                        {/* Thumbnail */}
                         <img
-                          src={event.images[0]} // first image as preview
-                          alt={event.name}
+                          src={event.images[0]}
+                          alt="event"
                           style={{
                             width: "100px",
                             height: "100px",
@@ -240,16 +270,6 @@ export default function Services() {
                             marginBottom: "5px",
                           }}
                         />
-                        {/* Owner/Event name */}
-                        <div
-                          style={{
-                            textAlign: "center",
-                            color: "#fff",
-                            fontSize: "0.9rem",
-                          }}
-                        >
-                          {event.name}
-                        </div>
                       </div>
                     ))}
                   </div>
@@ -258,7 +278,7 @@ export default function Services() {
             ))}
           </div>
 
-          {/* Event modal */}
+          {/* IMAGE MODAL */}
           {selectedEvent && (
             <div className="image-modal" onClick={() => setSelectedEvent(null)}>
               <span
@@ -272,10 +292,15 @@ export default function Services() {
                 ❮
               </span>
 
+              {imageLoading && (
+                <div className="image-loader">Loading...</div>
+              )}
+
               <img
                 className="modal-content"
                 src={getEventImages()[currentImageIndex]}
                 alt="Full View"
+                onLoad={() => setImageLoading(false)}
                 onClick={(e) => e.stopPropagation()}
               />
 

@@ -40,7 +40,7 @@ function Home() {
       loop
       muted
       controls
-      style={{height: "600px", objectFit: "cover"}}
+      style={{height: "500px", objectFit: "cover"}}
     >
       <source src={video} type="video/mp4"/>
     </video>
