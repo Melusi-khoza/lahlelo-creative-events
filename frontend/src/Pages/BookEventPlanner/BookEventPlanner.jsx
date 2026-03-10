@@ -4,36 +4,22 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 
 function BookEventPlanner() {
-<<<<<<< HEAD
-  // 1. Initialize State for all form fields
-  const [formData, setFormData] = useState({
-    name: "",
-=======
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // 1. Initialize State for all form fields
   const [formData, setFormData] = useState({
     fullname: "",
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
     email: "",
     phone: "",
     eventType: "",
     province: "",
     comments: "",
-<<<<<<< HEAD
-=======
     eventDate: "",
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
   });
 
   // 2. Handle input changes dynamically
   const handleChange = (e) => {
     const { name, value } = e.target;
-<<<<<<< HEAD
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-=======
     
     let updatedValue = value;
 
@@ -43,17 +29,10 @@ function BookEventPlanner() {
     setFormData((prev) => ({
       ...prev,
       [name]: updatedValue,
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
     }));
   };
 
   // 3. Handle Form Submission
-<<<<<<< HEAD
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevents page reload/crash
-    alert(`Booking submitted for: ${formData.name}`);
-    console.log("Form Data Submitted:", formData);
-=======
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevents page reload/crash
 
@@ -94,17 +73,10 @@ function BookEventPlanner() {
       //Re-enable button
       setIsSubmitting(false);
     }
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
   };
 
   return (
     <>
-<<<<<<< HEAD
-      <Header />
-      <div className="booking-body">
-        <main className="booking-container">
-          <h2>Make Your Booking</h2>
-=======
       
       <div className="booking-body">
         <Header />
@@ -112,21 +84,14 @@ function BookEventPlanner() {
           <h2>
             Make <span>Your</span> Booking
           </h2>
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
           <div className="booking-form">
             <form onSubmit={handleSubmit}>
               {/* Text Inputs */}
               <input
                 type="text"
-<<<<<<< HEAD
-                name="name"
-                placeholder="Enter your name"
-                value={formData.name}
-=======
                 name="fullname"
                 placeholder="Enter your name"
                 value={formData.fullname}
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
                 onChange={handleChange}
                 required
               />
@@ -157,18 +122,6 @@ function BookEventPlanner() {
                 <option value="" disabled hidden>
                   Select event type
                 </option>
-<<<<<<< HEAD
-                <option value="anniversary">Anniversary Celebrations</option>
-                <option value="baby_shower">Baby Showers</option>
-                <option value="birthday">Birthday Parties</option>
-                <option value="conference">Conferences</option>
-                <option value="corporate">Corporate Events</option>
-                <option value="event_organizer">Event Organizers</option>
-                <option value="wedding">Wedding Decor & Planner</option>
-                <option value="other">Other</option>
-              </select>
-
-=======
                 <option value="Anniversary">Anniversary Celebrations</option>
                 <option value="Baby shower">Baby Showers</option>
                 <option value="Birthday">Birthday Parties</option>
@@ -192,21 +145,16 @@ function BookEventPlanner() {
                   required
               />
               
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
               {/* Radio Group */}
               <div className="radio-section">
                 <p>Select your province:</p>
                 <div className="radio-group">
-<<<<<<< HEAD
-                  {["gauteng", "mpumalanga", "other"].map((prov) => (
-=======
                   {[
                     "Gauteng",
                     "Mpumalanga",
                     "Limpopo",
                     "Other",
                   ].map((prov) => (
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
                     <label key={prov} className="radio-item">
                       <input
                         type="radio"
@@ -215,16 +163,12 @@ function BookEventPlanner() {
                         checked={formData.province === prov}
                         onChange={handleChange}
                       />
-<<<<<<< HEAD
-                      {prov.charAt(0).toUpperCase() + prov.slice(1)}
-=======
                       {prov
                         .split("_")
                         .map(
                           (word) => word.charAt(0).toUpperCase() + word.slice(1)
                         )
                         .join(" ")}
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
                     </label>
                   ))}
                 </div>
@@ -239,14 +183,6 @@ function BookEventPlanner() {
                 onChange={handleChange}
               ></textarea>
 
-<<<<<<< HEAD
-              <button type="submit">Submit</button>
-            </form>
-          </div>
-        </main>
-      </div>
-      <Footer />
-=======
               <button type="submit" disabled={isSubmitting}>
                 {isSubmitting ? "Submitting..." : "Submit"}
               </button>
@@ -255,7 +191,6 @@ function BookEventPlanner() {
         </main>
         <Footer />
       </div>      
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
     </>
   );
 }

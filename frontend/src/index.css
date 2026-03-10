@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-=======
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:wght@700&display=swap');
 
@@ -17,7 +11,6 @@ p {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 500%;
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -28,8 +21,5 @@ p {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2

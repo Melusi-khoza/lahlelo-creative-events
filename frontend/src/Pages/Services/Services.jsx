@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import Footer from "../../Components/Footer/Footer";
-import Header from "../../Components/Header/Header";
-
-export default function Services() {
-  return (
-    <>
-      <Header />
-      <body></body>
-      <Footer />
-=======
 import { useState } from "react";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
@@ -298,7 +287,6 @@ export default function Services() {
         </main>
         <Footer />
       </div>
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
     </>
   );
 }

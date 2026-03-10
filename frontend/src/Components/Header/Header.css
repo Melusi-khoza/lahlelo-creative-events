@@ -1,14 +1,4 @@
 .header-container {
-<<<<<<< HEAD
-  position: relative;
-  margin-left: 1%;
-}
-
-.company_logo {
-  width: 15%;
-  height: auto;
-  margin-left: 0%;
-=======
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,7 +20,6 @@
 .company_logo {
   width: 150px;
   height: auto;
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
 }
 
 .header-list {
@@ -46,15 +35,9 @@
 
 .header-list li a {
   text-decoration: none;
-<<<<<<< HEAD
-  font-size: xx-large;
-  font-weight: bold;
-  color: rgb(225, 225, 225);
-=======
   font-size: x-large;
   font-weight: bold;
   color: white;
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
 }
 
 .header-list li a:hover {
@@ -62,26 +45,6 @@
 }
 
 .motto {
-<<<<<<< HEAD
-  color: rgb(210, 39, 119);
-  font-style: italic;
-}
-
-.book-btn {
-  color: black;
-  background-color: rgb(210, 39, 119);
-  border-radius: 15px;
-  position: absolute;
-  top: 30%;
-  right: 3%;
-  padding: 1% 5%;
-  font-size: medium;
-}
-
-.book-btn:hover {
-  transform: scale(1.2);
-}
-=======
   color: var(--brand-pink);
   font-size: 0.85rem;
   font-style: italic;
@@ -221,4 +184,3 @@
       z-index: 1000;
     }
 }
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2

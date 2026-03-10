@@ -27,12 +27,9 @@ h2 {
     text-align: center; /* Centers the text itself */
 }
 
-<<<<<<< HEAD
-=======
 span {
     color: var(--brand-pink);
 }
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
 /* 2. Form Container */
 form {
     display: flex;
@@ -159,12 +156,8 @@ button:hover {
     /* background-image: url('./bookingPic.jpeg'); */
     background-size: cover;
     background-repeat: no-repeat;
-<<<<<<< HEAD
-    background-color: rgba(0, 0, 0, 0.5);
-=======
     /* background-color: rgba(0, 0, 0, 0.5); */
     background: linear-gradient(to top, black 30%, #ff6ec7 70%);
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
     position: relative;
     width:100%;
     height: auto;
@@ -175,8 +168,6 @@ button:hover {
     justify-content: center;
     align-items: center;
     height: 100%;
-<<<<<<< HEAD
-=======
 }
 
 .calendar-container {
@@ -212,5 +203,4 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 input[type="date"]::-webkit-calendar-picker-indicator:hover {
     transform: scale(1.2);
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
 }

@@ -1,27 +1,3 @@
-<<<<<<< HEAD
-
-.home-body{
-    position: relative;
-    width:100%;
-}
-.pic2{
-    width: 100%;
-    display: block;
-}
-.overlay{
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.365);
-}
-.text-over-image{
-    position: absolute;
-    font-weight: bolder;
-    color: blue;
-    font-size: 50px;
-    top: 5%;
-    right: 50%;
-    text-shadow: 2px 2px 5px black;
-=======
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:wght@700&display=swap');
 
 .home-title{
@@ -128,5 +104,4 @@ footer h3 {
 footer p {
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.6);
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
 }
