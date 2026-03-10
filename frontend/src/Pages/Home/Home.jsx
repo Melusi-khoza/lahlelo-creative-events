@@ -1,7 +1,4 @@
 import "./Home.css";
-// import hp1 from "./HomePic1.jpeg";
-import hp2 from "./front.jpg";
-// import hp3 from "./HomePic3.jpeg";
 import hp4 from "./kholo2-40.jpg";
 import Header from "../../Components/Header/Header.jsx";
 import Footer from "../../Components/Footer/Footer.jsx";
@@ -90,7 +87,7 @@ function Home() {
       style={{ width: "100%", maxWidth: "600px", height: "auto", marginTop: "20px" }}
     />
     <img
-      src="./HomePics/DSC00043.jpg"
+      src="https://res.cloudinary.com/dzzkfvl3y/image/upload/v1773098293/DSC00043_o4ryos.jpg"
       style={{ width: "100%", maxWidth: "600px", height: "auto", marginTop: "20px" }}
     />
   </div>
