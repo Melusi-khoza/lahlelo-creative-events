@@ -44,7 +44,7 @@ public class SecurityConfig {
     public UserDetailsService userDetailsService(){
         UserDetails admin = User
             .withUsername("admin")
-            .password(passwordEncoder().encode("lahlelo123"))
+            .password(passwordEncoder().encode(System.getenv("ADMIN_PASSWORD")))
             .roles("ADMIN")
             .build();
 

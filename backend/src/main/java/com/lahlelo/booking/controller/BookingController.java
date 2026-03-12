@@ -2,24 +2,14 @@ package com.lahlelo.booking.controller;
 
 import java.time.LocalDateTime;
 import java.util.List;
-<<<<<<< HEAD
-import org.springframework.beans.factory.annotation.Autowired;
-=======
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-<<<<<<< HEAD
-import org.springframework.web.bind.annotation.RestController;
-import com.lahlelo.booking.entity.Booking;
-import com.lahlelo.booking.repository.BookingRepository;
-
-=======
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.lahlelo.booking.entity.Booking;
@@ -29,7 +19,6 @@ import com.lahlelo.booking.service.WhatsAppService;
 import com.lahlelo.booking.service.EmailService;
 
 @CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true") // Allow requests from React frontend
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
 @RestController
 @RequestMapping("/bookings")
 public class BookingController {
@@ -37,15 +26,12 @@ public class BookingController {
     @Autowired
     private BookingRepository bookingRepository;
 
-<<<<<<< HEAD
-=======
     @Autowired
     private WhatsAppService whatsAppService;
 
     @Autowired
     private EmailService emailService;
 
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
     //Fetch all bookings
     @GetMapping
     public List<Booking> getAllBookings(){
@@ -56,9 +42,6 @@ public class BookingController {
     @PostMapping
     public Booking createBooking(@RequestBody Booking booking){
         booking.setBookedAt(LocalDateTime.now());
-<<<<<<< HEAD
-        return bookingRepository.save(booking);
-=======
         Booking savedBooking = bookingRepository.save(booking);
 
         //Send WhatsApp alert to admin
@@ -133,6 +116,5 @@ public class BookingController {
         emailService.sendBookingResponse(email, name, eventType, eventDate);
 
         return "Email sent successfully";
->>>>>>> 602dc171e1b10551d9724b898562a3287ac8b4d2
     }
 }
