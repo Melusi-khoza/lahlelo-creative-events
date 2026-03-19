@@ -28,7 +28,7 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .cors(cors -> {})
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers(HttpMethod.OPTIONS, "./**").permitAll()
+                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/bookings").permitAll()
                 .requestMatchers(HttpMethod.GET,"/bookings/**").permitAll()
                 .requestMatchers(HttpMethod.GET,"/bookings/stats/**").hasRole("ADMIN")
@@ -42,6 +42,11 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService(){
+        //add null check for env variable
+        String adminPassword = System.getenv("ADMIN_PASSWORD");
+        if (adminPassword == null || adminPassword.isEmpty()) {
+            throw new IllegalStateException("ADMIN_PASSWORD environment variable is not set");
+        }
         UserDetails admin = User
             .withUsername("admin")
             .password(passwordEncoder().encode(System.getenv("ADMIN_PASSWORD")))
@@ -50,21 +55,4 @@ public class SecurityConfig {
 
         return new InMemoryUserDetailsManager(admin);
     }
-
-    @Bean
-    public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSource() {
-        org.springframework.web.cors.CorsConfiguration configuration =
-                new org.springframework.web.cors.CorsConfiguration();
-    
-        configuration.setAllowedOrigins(java.util.List.of("http://localhost:5173"));
-        configuration.setAllowedMethods(java.util.List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        configuration.setAllowedHeaders(java.util.List.of("*"));
-        configuration.setAllowCredentials(true);
-    
-        org.springframework.web.cors.UrlBasedCorsConfigurationSource source =
-                new org.springframework.web.cors.UrlBasedCorsConfigurationSource();
-    
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
-    } 
 }

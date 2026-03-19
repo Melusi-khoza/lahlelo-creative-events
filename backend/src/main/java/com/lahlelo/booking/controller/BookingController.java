@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import com.lahlelo.booking.service.WhatsAppService;
 import com.lahlelo.booking.service.EmailService;
 
-@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true") // Allow requests from React frontend
+@CrossOrigin(origins = {"http://localhost:5173", "https://lahlelo-events-frontend.onrender.com"}, allowCredentials = "true") // Allow requests from React frontend
 @RestController
 @RequestMapping("/bookings")
 public class BookingController {
