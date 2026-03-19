@@ -1,5 +1,5 @@
 import "./Home.css";
-import hp4 from "./kholo2-40.jpg";
+import hp4 from "./Kholo2-40.jpg";
 import Header from "../../Components/Header/Header.jsx";
 import Footer from "../../Components/Footer/Footer.jsx";
 import video from "./nhlanhla-video.mp4";
