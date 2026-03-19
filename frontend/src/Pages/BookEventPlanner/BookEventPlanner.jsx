@@ -20,7 +20,7 @@ function BookEventPlanner() {
   // 2. Handle input changes dynamically
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
+
     let updatedValue = value;
 
     if (name === "phone") {
@@ -41,11 +41,14 @@ function BookEventPlanner() {
 
     try {
       // Here you would typically send formData to your backend API
-      const response = await fetch("http://localhost:8080/bookings", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://lahlelo-events-backend.onrender.com/bookings",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        },
+      );
       //Check if the response is successful
       if (!response.ok) {
         const errorText = await response.text();
@@ -77,7 +80,6 @@ function BookEventPlanner() {
 
   return (
     <>
-      
       <div className="booking-body">
         <Header />
         <main className="booking-container">
@@ -134,27 +136,22 @@ function BookEventPlanner() {
 
               {/*Event Date*/}
               <label>Event Date:</label>
-              
-               <input
-                  placeholder="Event Date"
-                  type="date"
-                  name="eventDate"
-                  min={new Date().toISOString().split("T")[0]}
-                  value={formData.eventDate}
-                  onChange={handleChange}
-                  required
+
+              <input
+                placeholder="Event Date"
+                type="date"
+                name="eventDate"
+                min={new Date().toISOString().split("T")[0]}
+                value={formData.eventDate}
+                onChange={handleChange}
+                required
               />
-              
+
               {/* Radio Group */}
               <div className="radio-section">
                 <p>Select your province:</p>
                 <div className="radio-group">
-                  {[
-                    "Gauteng",
-                    "Mpumalanga",
-                    "Limpopo",
-                    "Other",
-                  ].map((prov) => (
+                  {["Gauteng", "Mpumalanga", "Limpopo", "Other"].map((prov) => (
                     <label key={prov} className="radio-item">
                       <input
                         type="radio"
@@ -166,7 +163,8 @@ function BookEventPlanner() {
                       {prov
                         .split("_")
                         .map(
-                          (word) => word.charAt(0).toUpperCase() + word.slice(1)
+                          (word) =>
+                            word.charAt(0).toUpperCase() + word.slice(1),
                         )
                         .join(" ")}
                     </label>
@@ -190,7 +188,7 @@ function BookEventPlanner() {
           </div>
         </main>
         <Footer />
-      </div>      
+      </div>
     </>
   );
 }

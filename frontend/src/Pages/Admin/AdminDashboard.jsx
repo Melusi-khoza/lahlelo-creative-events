@@ -16,7 +16,7 @@ function AdminDashboard() {
     const credentials = localStorage.getItem("auth");
 
     const fetchBookings = () => {
-      fetch("http://localhost:8080/bookings", {
+      fetch("https://lahlelo-events-backend.onrender.com/bookings", {
         headers: {
           Authorization: `Basic ${credentials}`,
         },
@@ -62,12 +62,15 @@ function AdminDashboard() {
       return;
 
     try {
-      const response = await fetch(`http://localhost:8080/admin/${id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Basic ${credentials}`,
+      const response = await fetch(
+        `https://lahlelo-events-backend.onrender.com/admin/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Basic ${credentials}`,
+          },
         },
-      });
+      );
 
       if (response.ok) {
         setBookings((prev) => prev.filter((booking) => booking.id !== id));
@@ -86,14 +89,14 @@ function AdminDashboard() {
 
     try {
       const res = await fetch(
-        `http://localhost:8080/bookings/send-email?email=${email}&name=${name}&eventType=${eventType}&eventDate=${eventDate}`,
+        `https://lahlelo-events-backend.onrender.com/bookings/send-email?email=${email}&name=${name}&eventType=${eventType}&eventDate=${eventDate}`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Basic ${credentials}`,
           },
-        }
+        },
       );
 
       if (res.ok) {
@@ -131,14 +134,14 @@ Lahlelo Creative Events`;
 
     window.open(
       `https://wa.me/${cleanNumber}?text=${encodedMessage}`,
-      "_blank"
+      "_blank",
     );
   };
 
   const filteredBookings = bookings.filter(
     (booking) =>
       booking.province.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      booking.eventType.toLowerCase().includes(searchTerm.toLowerCase())
+      booking.eventType.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
@@ -159,7 +162,7 @@ Lahlelo Creative Events`;
         <h2>
           Bookings <span>Calendar</span>
         </h2>
-        <AdminCalendar bookings={bookings} searchTerm={searchTerm}/>
+        <AdminCalendar bookings={bookings} searchTerm={searchTerm} />
         <section className="bookings-section">
           <h2 className="section-title">
             Bookings <span>Records</span>
@@ -201,7 +204,7 @@ Lahlelo Creative Events`;
                             booking.email,
                             booking.fullname,
                             booking.eventType,
-                            booking.eventDate
+                            booking.eventDate,
                           )
                         }
                       >
@@ -219,7 +222,12 @@ Lahlelo Creative Events`;
                             marginLeft: "8px",
                           }}
                           onClick={() =>
-                            openWhatsApp(booking.phone, booking.fullname, booking.eventType, booking.eventDate)
+                            openWhatsApp(
+                              booking.phone,
+                              booking.fullname,
+                              booking.eventType,
+                              booking.eventDate,
+                            )
                           }
                         >
                           💬

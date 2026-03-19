@@ -14,7 +14,7 @@ export default function AdminLogin({ setIsAuthenticated }) {
     const credentials = btoa(`${username}:${password}`);
 
     try {
-      const response = await fetch("http://localhost:8080/bookings", {
+      const response = await fetch("https://lahlelo-events-backend.onrender.com/bookings", {
         method: "GET",
         headers: {
           Authorization: `Basic ${credentials}`,

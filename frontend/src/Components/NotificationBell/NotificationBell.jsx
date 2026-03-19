@@ -43,7 +43,7 @@ const NotificationBell = () => {
 
     const fetchBookings = async () => {
       try {
-        const res = await fetch("http://localhost:8080/bookings", {
+        const res = await fetch("https://lahlelo-events-backend.onrender.com/bookings", {
           headers: { Authorization: `Basic ${credentials}` },
         });
         if (!res.ok) return;

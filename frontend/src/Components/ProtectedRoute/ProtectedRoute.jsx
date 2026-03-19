@@ -10,7 +10,7 @@ export default function ProtectedRoute({ children }) {
   useEffect(() => {
     const credentials = localStorage.getItem("auth");
 
-    fetch("http://localhost:8080/bookings", {
+    fetch("https://lahlelo-events-backend.onrender.com/bookings", {
       headers: {
         Authorization: `Basic ${credentials}`,
       },

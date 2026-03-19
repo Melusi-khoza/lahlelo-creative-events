@@ -19,7 +19,7 @@ function AdminStats() {
     const credentials = localStorage.getItem("auth");
 
     const fetchEvents = () => {
-    fetch("http://localhost:8080/bookings/stats/event-types", {
+    fetch("https://lahlelo-events-backend.onrender.com/bookings/stats/event-types", {
       headers: {
         Authorization: `Basic ${credentials}`,
       },
