@@ -10,6 +10,23 @@ public class EmailService {
 
     @Autowired
     private JavaMailSender mailSender;
+
+    public boolean isWorking() {
+        try {
+            return mailSender != null;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean testEmailConnection() {
+        try {
+        // Simple validation - just check if mailSender is configured
+            return mailSender != null;
+        } catch (Exception e) {
+            return false;
+        }
+    }
     
     public void sendBookingResponse(String toEmail, String customerName, String eventType, String eventDate) {
     

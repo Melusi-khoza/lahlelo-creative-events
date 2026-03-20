@@ -88,24 +88,35 @@ function AdminDashboard() {
     if (!window.confirm("Send email to this client?")) return;
 
     try {
+      // Create form data instead of JSON
+      const formData = new URLSearchParams();
+      formData.append("email", email);
+      formData.append("name", name);
+      formData.append("eventType", eventType);
+      formData.append("eventDate", eventDate);
+
       const res = await fetch(
-        `https://lahlelo-events-backend.onrender.com/bookings/send-email?email=${email}&name=${name}&eventType=${eventType}&eventDate=${eventDate}`,
+        `https://lahlelo-events-backend.onrender.com/bookings/send-email`,
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/x-www-form-urlencoded",
             Authorization: `Basic ${credentials}`,
           },
+          body: formData.toString(), // Send as form data
         },
       );
 
       if (res.ok) {
         alert("Email sent successfully!");
       } else {
+        const errorText = await res.text();
+        console.error("Server response:", errorText);
         alert("Failed to send email");
       }
     } catch (error) {
       console.error("Email error:", error);
+      alert("Network error - check console");
     }
   };
 
