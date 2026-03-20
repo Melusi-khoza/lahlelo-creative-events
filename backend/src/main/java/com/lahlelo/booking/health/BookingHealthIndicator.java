@@ -9,9 +9,12 @@ import org.springframework.stereotype.Component;
 import com.lahlelo.booking.repository.BookingRepository;
 import com.lahlelo.booking.service.EmailService;
 import java.util.HashMap;
+import java.util.Properties;
 import java.util.Map;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import jakarta.mail.Session;
+import jakarta.mail.Transport;
 
 @RestController
 @Component
