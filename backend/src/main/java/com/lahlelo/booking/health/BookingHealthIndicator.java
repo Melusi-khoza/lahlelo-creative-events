@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+
 import com.lahlelo.booking.repository.BookingRepository;
 import com.lahlelo.booking.service.EmailService;
 import java.util.HashMap;
@@ -12,6 +14,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @RestController
+@Component
 public class BookingHealthIndicator {
     @Autowired
     private BookingRepository bookingRepository;
@@ -71,5 +74,29 @@ public class BookingHealthIndicator {
         response.put("bookings", String.valueOf(bookingRepository.count()));
         response.put("email", emailService.isWorking() ? "OK" : "Check");
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/test-email")
+    public String testEmail() {
+        try {
+            Properties props = new Properties();
+            props.put("mail.smtp.host", System.getenv("MAIL_HOST"));
+            props.put("mail.smtp.port", System.getenv("MAIL_PORT"));
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.starttls.enable", "true");
+            
+            Session session = Session.getInstance(props);
+            Transport transport = session.getTransport("smtp");
+            transport.connect(
+                System.getenv("MAIL_HOST"),
+                Integer.parseInt(System.getenv("MAIL_PORT")),
+                System.getenv("MAIL_USERNAME"),
+                System.getenv("MAIL_PASSWORD")
+            );
+            transport.close();
+            return "Email connection successful! ✓";
+        } catch (Exception e) {
+            return "Email connection failed: " + e.getMessage();
+        }
     }
 }
